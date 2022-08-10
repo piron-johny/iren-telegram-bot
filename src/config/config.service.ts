@@ -1,0 +1,20 @@
+import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+
+@Injectable()
+export class AppConfigService {
+  constructor(private configService: ConfigService) { }
+
+  get host(): string {
+    return this.configService.get<string>('host');
+  }
+
+  get port(): string {
+    return this.configService.get<string>('port');
+  }
+
+  get bot_token(): string {
+    return this.configService.get<string>('bot_token');
+  }
+
+}
