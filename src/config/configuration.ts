@@ -6,8 +6,12 @@ export default () => ({
 
   database: {
     host: process.env.DATABASE_HOST,
-    port: parseInt(process.env.DATABASE_PORT, 10) || 5432
+    port: parseInt(process.env.DATABASE_PORT, 10) || 5432,
   },
 
   bot_token: process.env.BOT_TOKEN,
+
+  sheet_id: process.env.SHEET_ID,
+  private_key: process.env.PRIVATE_KEY,
+  client_email: process.env.CLIENT_EMAIL,
 });
