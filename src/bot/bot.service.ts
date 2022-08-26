@@ -12,7 +12,7 @@ export class BotService {
   }
 
   async addItem(item: Item) {
-    const { amount, symbols, name } = item;
+    const { amount, symbols, name, sum } = item;
     await (
       await this.connectSheet()
     ).addRow({
@@ -20,7 +20,10 @@ export class BotService {
       amount,
       symbols,
       name,
+      sum,
     });
+
+    return symbols / 1000 * amount
   }
 
   private async connectSheet() {

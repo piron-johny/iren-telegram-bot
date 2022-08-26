@@ -3,4 +3,5 @@ export interface Item {
   date: string;
   symbols: number;
   name: string;
+  sum: number;
 } 
