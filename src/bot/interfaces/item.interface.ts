@@ -4,4 +4,4 @@ export interface Item {
   symbols: number;
   name: string;
   sum: number;
-} 
+}

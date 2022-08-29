@@ -1,5 +1,4 @@
 import {
-  Action,
   Command,
   Ctx,
   Hears,
@@ -24,7 +23,7 @@ const { add } = buttonName;
 export class BotUpdate {
   constructor(
     @InjectBot() private readonly bot: Telegraf<Context>,
-    private readonly botServise: BotService,
+    private readonly botServiсe: BotService,
   ) {}
 
   @Start()
@@ -76,8 +75,7 @@ export class BotUpdate {
         sum: (Number(symbolCount.trim()) / 1000) * Number(coefficient.trim()),
       };
 
-      const addSum = await this.botServise.addItem(item);
-      // list1.push(entity);
+      const addSum = await this.botServiсe.addItem(item);
       await ctx.reply(`Добавлено! 👍\n\nСумма ${Math.floor(addSum)}`);
       ctx.session.type = null;
     }

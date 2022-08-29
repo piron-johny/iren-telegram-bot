@@ -8,4 +8,3 @@ export const buttons = () => {
     .oneTime()
     .resize();
 };
-

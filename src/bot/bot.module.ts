@@ -7,4 +7,4 @@ import { BotUpdate } from './bot.update';
   imports: [AppConfigModule],
   providers: [BotService, BotUpdate],
 })
-export class BotModule { }
+export class BotModule {}

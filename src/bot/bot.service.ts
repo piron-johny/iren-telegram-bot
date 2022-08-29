@@ -23,7 +23,7 @@ export class BotService {
       sum,
     });
 
-    return symbols / 1000 * amount
+    return (symbols / 1000) * amount;
   }
 
   private async connectSheet() {
@@ -36,13 +36,6 @@ export class BotService {
       await doc.loadInfo();
       const sheet = doc.sheetsByIndex[0];
       return sheet;
-
-      //  await sheet.addRow({
-      //    date: new Date().toLocaleDateString(),
-      //    amount: 45,
-      //    symbols: 3245,
-      //    name: 'Тестовое еще раз',
-      //  });
     } catch (error) {
       console.log('error', error);
     }
