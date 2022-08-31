@@ -28,26 +28,32 @@ export class BotUpdate {
 
   @Start()
   async start(ctx: Context) {
-    await ctx.reply(`Привет ${ctx.message.from.first_name}✌️`, buttons());
     await ctx.setMyCommands([
       { command: '/start', description: 'Запуск бота' },
+      { command: '/help', description: 'Помощь' },
+      { command: '/info', description: 'Информация о боте' },
     ]);
+    await ctx.reply(`Привет ${ctx.message.from.first_name}✌️`, buttons());
+    return;
   }
 
   @Help()
   async help(@Ctx() ctx: Context) {
     await ctx.reply('Ни чем помочь не могу 😊');
+    return;
   }
 
   @Command('info')
   async info(@Ctx() ctx: Context) {
     await ctx.reply(INFO);
+    return;
   }
 
   @Hears(add.name)
   async add(ctx: Context) {
-    await ctx.replyWithHTML(ADD);
     ctx.session.type = 'add';
+    await ctx.replyWithHTML(ADD);
+    return 
   }
 
   @On('text')
@@ -63,7 +69,7 @@ export class BotUpdate {
         isNaN(Number(coefficient.trim()))
       ) {
         await ctx.reply(NOT_A_NUMBER);
-        return;
+        return 
       }
 
       const date = new Date().toLocaleDateString();
@@ -76,8 +82,9 @@ export class BotUpdate {
       };
 
       const addSum = await this.botServiсe.addItem(item);
-      await ctx.reply(`Добавлено! 👍\n\nСумма ${Math.floor(addSum)}`);
       ctx.session.type = null;
+      await ctx.reply(`Добавлено! 👍\n\nСумма ${Math.floor(addSum)}`);
+      return 
     }
   }
 }
