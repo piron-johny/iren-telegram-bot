@@ -33,7 +33,6 @@ export class BotUpdate {
       { command: '/help', description: 'Помощь' },
       { command: '/info', description: 'Информация о боте' },
     ]);
-    await fetch('https://iren-bot.herokuapp.com/', { method: 'GET' });
     await ctx.reply(`Привет ${ctx.message.from.first_name}✌️`, buttons());
     return;
   }
